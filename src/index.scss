@@ -15,7 +15,14 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: sans-serif; 
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
 }
 
 h1 { font-size: 3.2rem; }
@@ -32,4 +39,22 @@ button { margin: 0 .8rem }
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 1rem .6rem;
+
+  .user-area {
+    display: flex;
+    align-items: center;
+
+    .widget {
+      margin-right: 1.2rem;
+    }
+  }
 }
+
+.item-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+

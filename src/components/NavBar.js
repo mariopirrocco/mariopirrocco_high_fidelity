@@ -1,6 +1,8 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 
+import CartWidget from './CartWidget'
+
 const NavBar = () => {
   return (
     <>
@@ -16,6 +18,7 @@ const NavBar = () => {
         </div>
         
         <div className="user-area">
+          <CartWidget />
           <Button variant="secondary">Ingresar</Button>
         </div>
       </Navbar>
