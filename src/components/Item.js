@@ -1,5 +1,6 @@
 
 const Item = ({disco}) => {
+	
 	return (
 
 		<div key={disco.id}>
