@@ -37,7 +37,7 @@
       "record": "Parte de la religión",
       "genre": "Rock argentino",
       "released": "1987",
-      "format": "vinilo",
+      "format": "vinyl",
       "price": "35",
       "img": "./imgs/charly-garcia-parte-de-la-religion.jpg",
       "tracklist": [
@@ -59,7 +59,7 @@
    "record": "Clics modernos",
    "genre": "Rock argentino",
    "released": "1983",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "40",
    "img": "./imgs/charly-garcia-clics-modernos.jpg",
    "tracklist": [
@@ -125,7 +125,7 @@
    "record": "Steel Wheels",
    "genre": "Rock en inglés",
    "released": "1989",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "35",
    "img": "./imgs/the-rolling-stones-steel-wheels.jpg",
    "tracklist": [
@@ -196,7 +196,7 @@
    "record": "The Wall",
    "genre": "Rock en inglés",
    "released": "1979",
-   "format": "vinilo",
+   "format": "cassette",
    "price": "68",
    "img": "./imgs/pink-foyd-the-wall.jpg",
    "tracklist": [
@@ -234,7 +234,7 @@
    "record": "The Division Bell",
    "genre": "Rock en inglés",
    "released": "1994",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "40",
    "img": "./imgs/pink-foyd-the-division-bell.jpg",
    "tracklist": [
@@ -257,7 +257,7 @@
    "record": "Ray of light",
    "genre": "Pop",
    "released": "1997",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "78",
    "img": "./imgs/madonna-ray-of-light.jpg",
    "tracklist": [
@@ -282,7 +282,7 @@
    "record": "A Rush Of Blood To The Head",
    "genre": "Pop",
    "released": "2002",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "34",
    "img": "./imgs/coldplay-a-rush-of-blood-to-the-head.jpg",
    "tracklist": [
@@ -307,7 +307,7 @@
    "record": "Ey! ",
    "genre": "Rock argentino",
    "released": "1988",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "50",
    "img": "./imgs/fito-paez-ey.jpg",
    "tracklist": [
@@ -328,7 +328,7 @@
    "record": " Lovesexy",
    "genre": "Pop",
    "released": "1988",
-   "format": "vinilo",
+   "format": "cassette",
    "price": "60",
    "img": "./imgs/prince-lovesexy.jpg",
    "tracklist": [
@@ -348,7 +348,7 @@
    "record": "Legend",
    "genre": "Rock en inglés",
    "released": "1984",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "36",
    "img": "./imgs/bob-marley-legend.jpg",
    "tracklist": [
@@ -374,7 +374,7 @@
    "record": "You could have it so much better",
    "genre": "Rock en inglés",
    "released": "2005",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "42",
    "img": "./imgs/franz-ferdinand-you-could-have-it-so-much-better.jpg",
    "tracklist": [
@@ -398,7 +398,7 @@
    "record": "NOMC15",
    "genre": "Electrónica",
    "released": "2017",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "60",
    "img": "./imgs/new-order-nomc15.jpg",
    "tracklist": [
@@ -429,7 +429,7 @@
    "record": "Coming Home ",
    "genre": "Soul",
    "released": "2015",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "40",
    "img": "./imgs/leon-bridges-coming-home.jpg",
    "tracklist": [
@@ -451,7 +451,7 @@
    "record": "Luz Oscura",
    "genre": "Electrónica",
    "released": "2021",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "70",
    "img": "./imgs/sasha-luz-oscura.jpg",
    "tracklist": [
@@ -484,7 +484,7 @@
    "record": "All that you can't leave behind",
    "genre": "Rock en inglés",
    "released": "2000",
-   "format": "vinilo",
+   "format": "vinyl",
    "price": "40",
    "img": "./imgs/u2-all-that-you-cant-leave-behind.jpg",
    "tracklist": [

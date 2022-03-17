@@ -1,10 +1,10 @@
 
-const ItemDetail = ({disco}) => {	
-	
+const ItemDetail = ({ disco }) => {	
+
 	return (
-		<>
+		<div className="single-record">
 			<div className="record-img">
-				<img src={disco.img} alt={disco.artist} />
+				<img src={`/${disco.img}`} alt={`${disco.artist} - ${disco.record}`} />
 			</div>
 			<div className="record-data">				
 				<h3>{disco.artist}</h3>
@@ -15,17 +15,18 @@ const ItemDetail = ({disco}) => {
 				<p><strong>Formato:</strong> {disco.format}</p>
 				<p><strong>Estilo:</strong> {disco.genre}</p>
 				<p><strong>Canciones:</strong></p>
-				{console.log(disco.tracklist)}
-				<ol>
+				<ul>
 					{
-						disco.tracklist.map((song, index)=>{
-							return <li key={index}>{song.title}</li>
-						}) 
+						disco.tracklist.map((track, index) => {
+							return <li key={index}>{track.title} </li>
+						})
 					}
-				</ol>
-				<button className="add-to-cart">Agregar a carrito</button>
+				</ul>
+				
+
+				<button className="add-to-cart" onClick={()=>console.log(disco.id)}>Agregar a carrito</button>
 			</div>
-		</>
+		</div>
 	)
 }
 

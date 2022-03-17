@@ -30,9 +30,9 @@ h1 { font-size: 3.2rem; }
 h2 { font-size: 2.4rem; }
 h3 { font-size: 2.08rem; }
 h4 { font-size: 1.6rem; }
-p, li, a, input, textarea { font-size: 1.2rem; }t
+p, li, a, input, textarea { font-size: 1.2rem; }
 
-button { margin: 0 .8rem }
+
 
 img { max-width: 100%; }
 
@@ -49,6 +49,19 @@ img { max-width: 100%; }
 
     .widget {
       margin-right: 1.2rem;
+    }
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .categories a.button-link {
+    margin: 0 4px;
+    
+    &.active {
+      border-bottom: 2px solid white;
     }
   }
 }
@@ -70,10 +83,12 @@ div.status {
 div.records {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 
-  div {
+  div.single-card {
     text-align: center;
+    display: flex;
+    flex-direction: column;
     width: 24%;
     margin: 4px;
     padding: 1rem;
@@ -87,20 +102,47 @@ div.records {
     }
 
     img {
-      margin-top: 14px;
+      margin: 14px auto;
+      width: 140px;
+      border-radius: 4px;
     }
+  }
+  a.button-link {
+    font-size: 14px;
+    text-decoration: none;
+    background:#666;
+    color: white;
+    width: 140px;
+    margin: auto;
+    padding: 6px 0 4px;
+    border-radius: 6px
+
   }
 }
 
-div.record-card {
+div.single-record {
   padding-top: 2rem;
   display: flex;
 
   .record-img {
-    width: 280px;
+    width: 200px;
     margin-right: 2rem;
-  }  
-  
+    
+    img {
+      border-radius: 6px;
+    }
+  }
+  .record-data {
+    line-height: 1.3;
+
+    ul {
+      margin: -8px 0 0 -14px;
+    }
+
+    li {
+      font-size: 14px;
+    }
+  }
 }
 
 button {
@@ -109,10 +151,21 @@ button {
   color: #fff;
   border-radius: 6px !important;
   margin-bottom: 2rem;
+  transition: all .2s ease-in-out;
 
   &.add-to-cart {
     width: 264px;
     margin-top: 24px;
     background-color: #545454;
+  }
+
+  &.ver-detalles {
+    margin-top: 18px;
+    padding-top: 12px;
+    background:#333;
+
+    &:hover {
+      background:#999;
+    }
   }
 }
