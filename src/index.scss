@@ -1,6 +1,3 @@
-
-@import "../node_modules/bootstrap/scss/bootstrap";
-
 *,
 *::before,
 *::after {
@@ -36,12 +33,13 @@ p, li, a, input, textarea { font-size: 1.2rem; }
 
 img { max-width: 100%; }
 
-.navbar {
+nav {
   background: #333;
   color: white;
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 1rem .6rem;
+  display: flex;
 
   .user-area {
     display: flex;
@@ -166,6 +164,11 @@ button {
   border-radius: 6px !important;
   margin-bottom: 2rem;
   transition: all .2s ease-in-out;
+
+  &.btn-ingresar {
+    background: #007bd3;
+    margin-bottom: 0
+  }
 
   &.add-to-cart {
     width: 264px;

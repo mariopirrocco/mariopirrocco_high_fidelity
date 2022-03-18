@@ -1,13 +1,11 @@
 import { Link, NavLink } from 'react-router-dom'
-import Navbar from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button'
 import CartWidget from './CartWidget'
 
 const NavBar = () => {
   return (
     <>
       
-      <Navbar variant="dark" className="navbar">
+      <nav>
         <Link to="/">
           <h3>High Fidelity Records</h3>  
         </Link>
@@ -18,15 +16,13 @@ const NavBar = () => {
           <NavLink to="/categoria/cds" className="button-link">CDs</NavLink>
           <NavLink to="/categoria/cassettes" className="button-link">Cassettes</NavLink>
           <NavLink to="carrito" className="button-link">Carrito</NavLink>
-
-          
         </div>
         
         <div className="user-area">
           <CartWidget />
-          <Button variant="secondary">Ingresar</Button>
+          <button className="btn-ingresar">Ingresar</button>
         </div>
-      </Navbar>
+      </nav>
     </>
   )
 }
