@@ -5,7 +5,6 @@ import { toast } from 'react-toastify'
 import ItemDetail from './ItemDetail'
 import discos from '../discosFull.json'
 
-
 const ItemDetailContainer = () => {  
 
 	const [loading, setLoading] = useState(true)
@@ -41,8 +40,11 @@ const ItemDetailContainer = () => {
 	return(
 
 		<div className="item-list-container">
-			<div className="record-card">				
-				{loading ? <h4 className='loading-content'>Cargando Disco</h4> : <ItemDetail disco={productos} />}
+			<div className="msg">
+				{loading ? <h4 className='loading-content'>Cargando Disco</h4> : ''}
+			</div>
+			<div className="record-card">
+				{loading ? '' : <ItemDetail disco={productos} />}
 			</div>			
 		</div>
 	)

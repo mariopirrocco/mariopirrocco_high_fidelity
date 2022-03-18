@@ -10,11 +10,10 @@ const ItemList = ({ discos, loading }) => {
     })
 	}
 	
-
 	return (
 		<>			
 			<div className="records">				
-				{loading ? 'Cargando' : showRecords()}
+				{loading ? '' : showRecords()}
 			</div>
 			
 		</>

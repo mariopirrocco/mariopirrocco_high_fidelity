@@ -1,4 +1,3 @@
-
 const ItemDetail = ({ disco }) => {	
 
 	return (
@@ -22,14 +21,11 @@ const ItemDetail = ({ disco }) => {
 						})
 					}
 				</ul>
-				
-
 				<button className="add-to-cart" onClick={()=>console.log(disco.id)}>Agregar a carrito</button>
 			</div>
 		</div>
 	)
 }
-
 
 export default ItemDetail
 

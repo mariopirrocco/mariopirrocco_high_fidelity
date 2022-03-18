@@ -1,8 +1,8 @@
 const Cart = () => {
 	return(
 		<>
-			<div className="widget">
-				Carrito
+			<div className="msg">
+				<h4>Carrito</h4>
 			</div>
 			
 		</>

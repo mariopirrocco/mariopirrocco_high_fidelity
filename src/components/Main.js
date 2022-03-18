@@ -8,13 +8,13 @@ import Cart from './Cart'
 const Main = ({ nombre, apellido }) => {
 
 	return (
+		
 		<main>
 			<Routes>
 				<Route path="/" element={<ItemListContainer />} />				
 				<Route path="/categoria/:id" element={<ItemListContainer />} />
 				<Route path="/carrito" element={<Cart />} />
-				<Route path="/item/:id" element={<ItemDetailContainer />} />
-				
+				<Route path="/item/:id" element={<ItemDetailContainer />} />				
 			</Routes>
 		</main>
 	)

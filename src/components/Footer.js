@@ -1,8 +1,8 @@
 const Footer = ({ nombre, apellido }) => {
 	return (
-		<>
-			<h4>2022</h4>
-		</>
+		<footer>
+			<h4>High Fidelity Records - 2022</h4>
+		</footer>
 	)
 }
 
