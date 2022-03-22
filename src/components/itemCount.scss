@@ -10,16 +10,15 @@
 .items-control  {
 	width: 120px;
 	background-color: #333;
-}
-
-.items-control:hover {
-		background: #666;
+	
+	&:hover {
+		background: red;
 	}
+}
 
 .control {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 16px;
 }
 
 button {

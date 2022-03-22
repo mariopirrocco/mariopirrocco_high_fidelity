@@ -11,6 +11,19 @@ const ItemDetailContainer = () => {
 	const [productos, setProductos] = useState([])
 	const {id} = useParams()
 	let selected = []
+	let [goToCart, setGoToCart] = useState(false)
+	
+	let stock = 4
+	const initial = 1
+	const onAdd = (value) => {
+		if(value === stock) {
+			toast.success(`Has cargado ${value} discos en tu carrito, es todo el stock que tenemos en este momento`)
+			setGoToCart(true)
+		} else {
+			toast.success(`Tienes ${value} disco(s) en tu carrito`)
+			setGoToCart(true)
+		}		
+	}
 	
 	useEffect(() => {
 		const promesa = new Promise((resolve, reject) => {
@@ -25,10 +38,9 @@ const ItemDetailContainer = () => {
 		
 		promesa.then((data) => {
 			setProductos(data)
-			
 		})
 		.catch((error) => {
-			toast.error('hubo un error en la carga del catálogo')
+			toast.error('hubo un error en la carga del disco')
 		})
 		.finally(() => {	
 			setLoading(false)
@@ -38,13 +50,12 @@ const ItemDetailContainer = () => {
 	
 
 	return(
-
 		<div className="item-list-container">
 			<div className="msg">
 				{loading ? <h4 className='loading-content'>Cargando Disco</h4> : ''}
 			</div>
 			<div className="record-card">
-				{loading ? '' : <ItemDetail disco={productos} />}
+				{loading ? '' : <ItemDetail disco={productos} stock={stock} initial={initial} onAdd={onAdd} goToCart={goToCart} />}
 			</div>			
 		</div>
 	)
