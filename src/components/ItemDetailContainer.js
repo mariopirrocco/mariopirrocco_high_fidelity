@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 
 import { useParams } from 'react-router-dom'
-import { contexto } from './CartContext'
+import { context } from './CartContext'
 
 
 import { toast } from 'react-toastify'
@@ -11,7 +11,7 @@ import discos from '../discosFull.json'
 
 const ItemDetailContainer = () => {  
 
-	const result = useContext(contexto)
+	const result = useContext(context)
 
 	const addItem = result.addItem;
 
@@ -26,14 +26,14 @@ const ItemDetailContainer = () => {
 	let stock = 4
 	const initial = 1
 	
-	const onAdd = (value) => {
-		addItem(id, value);
+	const onAdd = (disco, count) => {
+		addItem(disco, count);
 		
-		if(value === stock) {
-			toast.success(`Has cargado ${value} discos a tu carrito, es todo el stock que tenemos en este momento`)
+		if(count === stock) {
+			toast.success(`Has cargado ${count} discos a tu carrito, es todo el stock que tenemos en este momento`)
 			setGoToCart(true)
 		} else {
-			toast.success(`Agregaste ${value} disco(s) en tu carrito`)
+			toast.success(`Agregaste ${count} disco(s) a tu carrito`)
 			setGoToCart(true)
 		}		
 	}

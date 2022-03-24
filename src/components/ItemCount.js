@@ -1,9 +1,11 @@
 import './itemCount.css'
 import { useState, useContext } from 'react'
 
-const ItemCount = ({ stock, initial, onAdd, id }) => {
+const ItemCount = ({ stock, initial, onAdd, disco }) => {
 
 	const [ counter, setCounter ] = useState(initial)
+
+
 	
 	const addRecord = () => {
 		if(counter < stock) {
@@ -24,7 +26,7 @@ const ItemCount = ({ stock, initial, onAdd, id }) => {
 				<button className="items-control" onClick = {removeRecord}> - </button>	
 			</div>
 			
-			<button className="add-to-cart" onClick={()=> onAdd(counter, id)}>Agregar al carrito</button>
+			<button className="add-to-cart" onClick={()=> onAdd(disco, counter)}>Agregar al carrito</button>
 		</>
 	)
 }

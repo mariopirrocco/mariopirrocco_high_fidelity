@@ -1,49 +1,59 @@
 import { createContext, useState } from 'react'
-export const contexto = createContext()
-const { Provider } = contexto
+
+export const context = createContext()
+
+const { Provider } = context
 
 const CartContextProvider = (props) => {
 
-	const [ cartContent, setCartContent ] = useState([])
+	const [ cart, setCart ] = useState([])
 	
 	const [ total, setTotal ] = useState(0)
-s
-	const removeItem = (id) => {}
+
+	const removeItem = (record) => {
+		console.log(record)
+    
+    if (isInCart(record)) {
+    		
+      const cartAux = cart.filter(item => item !== record )
+      setCart(cartAux)
+    } else {
+    	console.log('not found')
+    }
+	}
 	
-	const addItem = (id, value) => {
-		isInCart(id)
-		
-		if(isInCart(id)) {
-			setCartContent(cartContent[isInCart(id)].quantity = 
-		} else {
-			setCartContent ([...cartContent, {...prod, qty}]) // ver
-			setTotal(total + prod.price) 			// ver
-		}
+	const addItem = (disco, count) => {
+
+		let cartProduct = { disco, count }
+    let cartAux = []
+    
+    if (isInCart(disco)) {
+      cartProduct = cart.find(item => item.disco === disco)
+      cartProduct.count = cartProduct.count + count
+      cartAux = [...cart]
+    } else {
+      cartAux = [cartProduct, ...cart]
+    }
+    setCart(cartAux)
+
 	}
 	
 	const clear = () => {
-		setCartContent = []
+		setCart = []
 	}
-	
-	
-	
-	const isInCart = (id) => {
-		// buscar por id y devuelve true or false si está en el array
-		cartContent.findIndex((item) => {
-			return item.id === id
-		})
+		
+	const isInCart = (disco) => {
+		return cart && cart.some(item => item === disco)
 	}
  	
 	const contextValue = {		
-		total: total,
-		cartContent: cartContent,
-		removeItem: removeItem,
-		addItem: addItem,
-		clear: clear
+		addItem,
+    removeItem,
+    clear,
+    cart
 	}
 	
 	return(
-
 		<Provider value={contextValue} >
 			{props.children}
 		</Provider>

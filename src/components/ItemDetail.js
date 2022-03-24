@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { contexto } from './CartContext'
+import { context } from './CartContext'
 
 import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {	
 
-	const result = useContext(contexto)
+	const result = useContext(context)
 
 	const addItem = result.addItem;
 	
@@ -37,10 +37,12 @@ const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {
 					}
 				</ul>
 				<div className="add-to-cart-control">
+
+
 					{goToCart ? <Link to="/carrito">
 												<button className="add-to-cart">Terminar compra</button>
 											</Link> 
-										: <ItemCount stock={stock} initial={initial} onAdd={onAdd} id={disco.id} />}
+										: <ItemCount stock={stock} initial={initial} onAdd={onAdd} disco={disco} />}
 				</div>
 			</div>
 		</div>

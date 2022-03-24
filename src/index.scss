@@ -171,7 +171,6 @@ div.single-record {
   
 }
 
-
 button {
   border: none;
   padding: 8px 14px;  
@@ -206,6 +205,28 @@ button {
   &:hover {
     cursor: pointer;
   }
+}
+
+div.cart-items {
+  display: flex;
+  align-items: center;
+  width: 850px;
+  margin: 0 auto 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  
+  div.img-container {
+    img {
+      width: 200px;
+      border-radius: 6px;
+    }
+  }
+
+  div.record-data {
+    padding: 1.2rem;
+  }
+  
 }
 
 footer {
