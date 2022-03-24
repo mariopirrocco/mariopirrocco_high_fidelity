@@ -8,7 +8,6 @@ import Cart from './Cart'
 const Main = ({ nombre, apellido }) => {
 
 	return (
-		
 		<main>
 			<Routes>
 				<Route path="/" element={<ItemListContainer />} />				

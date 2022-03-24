@@ -1,17 +1,17 @@
 import './itemCount.css'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, id }) => {
 
 	const [ counter, setCounter ] = useState(initial)
-
-	const addItem = () => {
+	
+	const addRecord = () => {
 		if(counter < stock) {
 			setCounter(counter + 1)
 		}
 	}
 
-	const removeItem = () => {
+	const removeRecord = () => {
 		if(counter > initial) {
 			setCounter(counter - 1)
 		}
@@ -20,11 +20,11 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 		<>
 			<div className="counter">{ counter }</div>
 			<div className="control">
-				<button className="items-control" onClick = {addItem}> + </button>
-				<button className="items-control" onClick = {removeItem}> - </button>	
+				<button className="items-control" onClick = {addRecord}> + </button>
+				<button className="items-control" onClick = {removeRecord}> - </button>	
 			</div>
 			
-			<button className="add-to-cart" onClick={()=> onAdd(counter)}>Agregar al carrito</button>
+			<button className="add-to-cart" onClick={()=> onAdd(counter, id)}>Agregar al carrito</button>
 		</>
 	)
 }

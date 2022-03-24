@@ -1,5 +1,9 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect, useContext } from 'react'
+
 import { useParams } from 'react-router-dom'
+import { contexto } from './CartContext'
+
+
 import { toast } from 'react-toastify'
 
 import ItemDetail from './ItemDetail'
@@ -7,25 +11,35 @@ import discos from '../discosFull.json'
 
 const ItemDetailContainer = () => {  
 
+	const result = useContext(contexto)
+
+	const addItem = result.addItem;
+
 	const [loading, setLoading] = useState(true)
 	const [productos, setProductos] = useState([])
 	const {id} = useParams()
 	let selected = []
 	let [goToCart, setGoToCart] = useState(false)
+
+
 	
 	let stock = 4
 	const initial = 1
+	
 	const onAdd = (value) => {
+		addItem(id, value);
+		
 		if(value === stock) {
-			toast.success(`Has cargado ${value} discos en tu carrito, es todo el stock que tenemos en este momento`)
+			toast.success(`Has cargado ${value} discos a tu carrito, es todo el stock que tenemos en este momento`)
 			setGoToCart(true)
 		} else {
-			toast.success(`Tienes ${value} disco(s) en tu carrito`)
+			toast.success(`Agregaste ${value} disco(s) en tu carrito`)
 			setGoToCart(true)
 		}		
 	}
 	
 	useEffect(() => {
+
 		const promesa = new Promise((resolve, reject) => {
 			setTimeout(() => {
 				
@@ -48,6 +62,7 @@ const ItemDetailContainer = () => {
 		
 	}, [id])
 	
+		
 
 	return(
 		<div className="item-list-container">

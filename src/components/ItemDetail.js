@@ -1,7 +1,17 @@
+import { useContext } from 'react'
+import { contexto } from './CartContext'
+
 import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
 
+
+
 const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {	
+
+	const result = useContext(contexto)
+
+	const addItem = result.addItem;
+	
 
 	return (
 		<div className="single-record">
@@ -30,7 +40,7 @@ const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {
 					{goToCart ? <Link to="/carrito">
 												<button className="add-to-cart">Terminar compra</button>
 											</Link> 
-										: <ItemCount stock={stock} initial={initial} onAdd={onAdd}/>}
+										: <ItemCount stock={stock} initial={initial} onAdd={onAdd} id={disco.id} />}
 				</div>
 			</div>
 		</div>
