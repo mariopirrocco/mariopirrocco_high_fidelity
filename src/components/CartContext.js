@@ -39,7 +39,7 @@ const CartContextProvider = (props) => {
 	}
 	
 	const clear = () => {
-		setCart = []
+		setCart([]) 
 	}
 		
 	const isInCart = (disco) => {

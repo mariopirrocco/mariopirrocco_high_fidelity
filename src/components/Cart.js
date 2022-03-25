@@ -5,7 +5,7 @@ const Cart = () => {
 	
 	const result = useContext(context)
 	
-	const { cart, removeItem } = result
+	const { cart, removeItem, clear } = result
 
 	
 	
@@ -46,6 +46,9 @@ const Cart = () => {
 						)
 					})
 				}
+			</div>
+			<div className="clear">
+				{cart.length ? <button className="add-to-cart" onClick={clear}>Borrar todo</button> : ''}
 			</div>
 			
 		</>
