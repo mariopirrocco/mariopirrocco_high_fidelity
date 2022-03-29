@@ -1,29 +1,25 @@
 import { createContext, useState } from 'react'
-
 export const context = createContext()
-
 const { Provider } = context
 
 const CartContextProvider = (props) => {
 
-	const [ cart, setCart ] = useState([])
-	
+	const [ cart, setCart ] = useState([])	
 	const [ total, setTotal ] = useState(0)
+	const [ totalItems, setTotalItems ] = useState(0)
 
-	const removeItem = (record) => {
-		console.log(record)
-    
-    if (isInCart(record)) {
-    		
+	const removeItem = (record) => {    
+    if (isInCart(record)) {    		
       const cartAux = cart.filter(item => item !== record )
       setCart(cartAux)
+      getTotal(cartAux)
+      getTotalItems(cartAux)
     } else {
     	console.log('not found')
     }
 	}
 	
 	const addItem = (disco, count) => {
-
 		let cartProduct = { disco, count }
     let cartAux = []
     
@@ -36,10 +32,29 @@ const CartContextProvider = (props) => {
     }
     setCart(cartAux)
 
+    getTotal(cartAux)
+    getTotalItems(cartAux)
 	}
 	
 	const clear = () => {
 		setCart([]) 
+		setTotal(0)
+	}
+
+	const getTotal = (cartAux) => {
+		let total=0
+		for(let i of cartAux) {
+			total += i.count * i.disco.price
+		}
+		setTotal(total);
+	}
+
+	const getTotalItems = (cartAux) => {
+		let totalItems=0
+		for(let i of cartAux) {
+			totalItems += i.count
+		}
+		setTotalItems(totalItems);
 	}
 		
 	const isInCart = (disco) => {
@@ -50,7 +65,9 @@ const CartContextProvider = (props) => {
 		addItem,
     removeItem,
     clear,
-    cart
+    cart,
+    total,
+    totalItems
 	}
 	
 	return(

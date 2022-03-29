@@ -27,7 +27,6 @@ const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {
 				<p><strong>Año:</strong> {disco.released}</p>
 				<p><strong>Estilo:</strong> {disco.genre}</p>
 				<p><strong>Formato:</strong> {disco.format}</p>
-				<p><strong>Estilo:</strong> {disco.genre}</p>
 				<p><strong>Canciones:</strong></p>
 				<ul>
 					{

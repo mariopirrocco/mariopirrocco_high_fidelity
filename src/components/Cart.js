@@ -1,14 +1,13 @@
 import { useContext } from 'react'
 import { context } from './CartContext'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
 	
 	const result = useContext(context)
 	
-	const { cart, removeItem, clear } = result
+	const { cart, removeItem, clear, total } = result
 
-	
-	
 	const handleBorrar = (item) => {
 
 		removeItem(item)
@@ -23,6 +22,7 @@ const Cart = () => {
 				{
 					result.cart.map((item, index) => {
 					
+						const totalValue = item.disco.price * item.count
 						
 						return (
 								<div key={index} className="cart-items">
@@ -34,7 +34,7 @@ const Cart = () => {
 										<h4>{item.disco.record}</h4>
 										<p>Precio unitario: ${item.disco.price}</p>
 										<p>Cantidad: {item.count}</p>
-										<p>Precio total: ${item.disco.price * item.count}</p>
+										<p>Precio total: ${totalValue}</p>
 									</div>
 									<div className="record-remove">
 										<button className="add-to-cart" onClick={()=>handleBorrar(item)}>Quitar item</button>
@@ -46,6 +46,14 @@ const Cart = () => {
 						)
 					})
 				}
+			</div>
+			<div className="total-price">
+				<p><strong>{cart.length ? 
+					<>El valor total de tu compra es: ${ total }</>
+					: <>En este momento no tienes discos seleccionados <Link to="/">
+						<button class="add-to-cart">Volver al catálogo</button></Link></>
+				}</strong></p>
+				
 			</div>
 			<div className="clear">
 				{cart.length ? <button className="add-to-cart" onClick={clear}>Borrar todo</button> : ''}
