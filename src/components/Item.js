@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
 const Item = ({disco}) => {
-	
 	return (
 		<div className="single-card" key={disco.id}>
 			<p><strong>{disco.artist}</strong></p>

@@ -2,9 +2,8 @@ import Item from './Item'
 import ItemDetail from './ItemDetail'
 
 
-const ItemList = ({ discos, loading }) => {
-	
-	const showRecords = () => {
+const ItemList = ({ discos, loading }) => {	
+  const showRecords = () => {
     return discos.map((disco) => {
       return <Item disco={disco} key={disco.id}/>
     })
@@ -15,7 +14,6 @@ const ItemList = ({ discos, loading }) => {
 			<div className="records">				
 				{loading ? '' : showRecords()}
 			</div>
-			
 		</>
 	)
 }

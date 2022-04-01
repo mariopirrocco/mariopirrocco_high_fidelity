@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 
 const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {	
 
+
 	const result = useContext(context)
 
 	const addItem = result.addItem;
@@ -16,22 +17,23 @@ const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {
 	return (
 		<div className="single-record">
 			<div className="record-img">
-				<img src={`/${disco.img}`} alt={`${disco.artist} - ${disco.record}`} />
+				<img src={`/${disco[0].img}`} alt={`${disco[0].artist} - ${disco[0].record}`} />
 			</div>
 			<div className="record-data">				
-				<h3>{disco.artist}</h3>
-				<h4>{disco.record}</h4>
-				<p><strong>Precio:</strong> U$S {disco.price}</p> 
+				<h3>{disco[0].artist}</h3>
+				<h4>{disco[0].record}</h4>
+				<p><strong>Precio:</strong> U$S {disco[0].price}</p> 
 				
 				<hr />
-				<p><strong>Año:</strong> {disco.released}</p>
-				<p><strong>Estilo:</strong> {disco.genre}</p>
-				<p><strong>Formato:</strong> {disco.format}</p>
+				<p><strong>Año:</strong> {disco[0].released}</p>
+				<p><strong>Estilo:</strong> {disco[0].genre}</p>
+				<p><strong>Formato:</strong> {disco[0].format}</p>
 				<p><strong>Canciones:</strong></p>
 				<ul>
 					{
-						disco.tracklist.map((track, index) => {
-							return <li key={index}>{track.title} </li>
+						disco[0].tracklist.map((track, index) => {
+							console.log(track)
+							return <li key={index}>{track} </li>
 						})
 					}
 				</ul>
@@ -41,7 +43,7 @@ const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {
 					{goToCart ? <Link to="/carrito">
 												<button className="add-to-cart">Terminar compra</button>
 											</Link> 
-										: <ItemCount stock={stock} initial={initial} onAdd={onAdd} disco={disco} />}
+										: <ItemCount stock={stock} initial={initial} onAdd={onAdd} disco={disco[0]} />}
 				</div>
 			</div>
 		</div>

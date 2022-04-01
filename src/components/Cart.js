@@ -51,7 +51,7 @@ const Cart = () => {
 				<p><strong>{cart.length ? 
 					<>El valor total de tu compra es: ${ total }</>
 					: <>En este momento no tienes discos seleccionados <Link to="/">
-						<button class="add-to-cart">Volver al catálogo</button></Link></>
+						<button className="add-to-cart">Volver al catálogo</button></Link></>
 				}</strong></p>
 				
 			</div>

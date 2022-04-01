@@ -9,6 +9,9 @@ import { toast } from 'react-toastify'
 import ItemDetail from './ItemDetail'
 import discos from '../discosFull.json'
 
+import { db } from '../Firebase'
+import { getDocs, query, collection, where } from 'firebase/firestore'
+
 const ItemDetailContainer = () => {  
 
 	const result = useContext(context)
@@ -20,7 +23,7 @@ const ItemDetailContainer = () => {
 	const {id} = useParams()
 	let selected = []
 	let [goToCart, setGoToCart] = useState(false)
-
+	let documents = null
 
 	
 	let stock = 4
@@ -39,26 +42,47 @@ const ItemDetailContainer = () => {
 	}
 	
 	useEffect(() => {
-
-		const promesa = new Promise((resolve, reject) => {
-			setTimeout(() => {
-				
-				selected = discos.filter((disco) => {					
-					return disco.id === id
-				})
-				resolve(selected[0])
-			}, 2000)
-		})
 		
-		promesa.then((data) => {
-			setProductos(data)
-		})
-		.catch((error) => {
-			toast.error('hubo un error en la carga del disco')
-		})
-		.finally(() => {	
-			setLoading(false)
-		})		
+      const q = query(collection(db, 'records'), where('id', '==', id ))
+      documents = getDocs(q)
+    
+
+    documents
+      .then((response) => {
+        const aux = []
+        response.forEach((document) => {
+          const singleRecord = {
+            id: document.id,
+            ...document.data()
+          }
+          aux.push(singleRecord)          
+        })
+        setProductos(aux)        
+        setLoading(false)     
+      })
+      .catch(() => {
+        toast.error('Hubo un error accediendo a la base de datos')
+      })
+
+		// const promesa = new Promise((resolve, reject) => {
+		// 	setTimeout(() => {
+				
+		// 		selected = discos.filter((disco) => {					
+		// 			return disco.id === id
+		// 		})
+		// 		resolve(selected[0])
+		// 	}, 2000)
+		// })
+		
+		// promesa.then((data) => {
+		// 	setProductos(data)
+		// })
+		// .catch((error) => {
+		// 	toast.error('hubo un error en la carga del disco')
+		// })
+		// .finally(() => {	
+		// 	setLoading(false)
+		// })		
 		
 	}, [id])
 	

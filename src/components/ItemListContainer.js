@@ -1,56 +1,45 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
-
+import { db } from '../Firebase'
+import { getDocs, query, collection, where } from 'firebase/firestore'
 import ItemDetail from './ItemDetail'
 import ItemList from './ItemList'
-import discos from '../discosFull.json'
+
 
 
 const ItemListContainer = ({type}) => {  
 
 	const [loading, setLoading] = useState(true)
 	const [productos, setProductos] = useState([])
-	const {id} = useParams()
+	const { id}  = useParams()
 	let filtered = []
+  let documents = null
 	
 	useEffect(() => {
+    if(id) {
+      const q = query(collection(db, 'records'), where('format', '==', id ))
+      documents = getDocs(q)
+    } else {
+      documents = getDocs(collection(db, 'records'))
+    }
 
-		const promesa = new Promise((resolve, reject) => {
-
-			setTimeout(() => {
-				if(id === 'vinilos') {
-					filtered = discos.filter((disco) => {
-						return disco.format === 'vinyl'
-					})
-				} else if(id ==='cds') {
-					filtered = discos.filter((disco) => {
-						return disco.format === 'cd'
-					})
-				} else if(id ==='cassettes') {
-					filtered = discos.filter((disco) => {
-						return disco.format === 'cassette'
-					})
-				}	else if(id === undefined) {
-					filtered = discos
-				} else {
-					filtered = discos.filter((disco) => {
-						return disco.id === id
-					})
-				}
-				resolve(filtered)
-			}, 2000)
-		}, [id])
-		
-		promesa.then((data) => {
-			setProductos(data)
-		})
-		.catch((error) => {
-			toast.error('hubo un error en la carga del catálogo')
-		})
-		.finally(() => {
-			setLoading(false)
-		})
+    documents
+      .then((response) => {
+        const aux = []
+        response.forEach((document) => {
+          const singleRecord = {
+            id: document.id,
+            ...document.data()
+          }
+          aux.push(singleRecord)          
+        })
+        setProductos(aux)
+        setLoading(false)        
+      })
+      .catch(() => {
+        toast.error('Hubo un error accediendo a la base de datos')
+      })
 	}, [id])
 
 	return(
