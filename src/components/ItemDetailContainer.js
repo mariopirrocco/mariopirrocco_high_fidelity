@@ -63,26 +63,6 @@ const ItemDetailContainer = () => {
       .catch(() => {
         toast.error('Hubo un error accediendo a la base de datos')
       })
-
-		// const promesa = new Promise((resolve, reject) => {
-		// 	setTimeout(() => {
-				
-		// 		selected = discos.filter((disco) => {					
-		// 			return disco.id === id
-		// 		})
-		// 		resolve(selected[0])
-		// 	}, 2000)
-		// })
-		
-		// promesa.then((data) => {
-		// 	setProductos(data)
-		// })
-		// .catch((error) => {
-		// 	toast.error('hubo un error en la carga del disco')
-		// })
-		// .finally(() => {	
-		// 	setLoading(false)
-		// })		
 		
 	}, [id])
 	
