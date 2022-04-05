@@ -4,15 +4,9 @@ import { context } from './CartContext'
 import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
 
-
-
 const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {	
-
-
 	const result = useContext(context)
-
-	const addItem = result.addItem;
-	
+	const addItem = result.addItem
 
 	return (
 		<div className="single-record">
@@ -32,14 +26,11 @@ const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {
 				<ul>
 					{
 						disco[0].tracklist.map((track, index) => {
-							console.log(track)
 							return <li key={index}>{track} </li>
 						})
 					}
 				</ul>
 				<div className="add-to-cart-control">
-
-
 					{goToCart ? <Link to="/carrito">
 												<button className="add-to-cart">Terminar compra</button>
 											</Link> 

@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
 
 	const [loading, setLoading] = useState(true)
 	const [productos, setProductos] = useState([])
-	const {id} = useParams()
+	const { id } = useParams()
 	let selected = []
 	let [goToCart, setGoToCart] = useState(false)
 	let documents = null
@@ -43,10 +43,9 @@ const ItemDetailContainer = () => {
 	
 	useEffect(() => {
 		
-      const q = query(collection(db, 'records'), where('id', '==', id ))
-      documents = getDocs(q)
+    const q = query(collection(db, 'records'), where('id', '==', id ))
+    documents = getDocs(q)
     
-
     documents
       .then((response) => {
         const aux = []

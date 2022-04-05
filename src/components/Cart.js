@@ -2,6 +2,9 @@ import { useContext } from 'react'
 import { context } from './CartContext'
 import { Link } from 'react-router-dom'
 
+import { db } from '../Firebase'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+
 const Cart = () => {
 	
 	const result = useContext(context)
@@ -9,9 +12,25 @@ const Cart = () => {
 	const { cart, removeItem, clear, total } = result
 
 	const handleBorrar = (item) => {
-
 		removeItem(item)
 	}
+  const handlePurchase = () => {
+    const order = {
+      buyer: {
+        name: 'Mario',
+        phone: '598-989999',
+        email: 'mario@mail.com'
+      },
+      items: cart,
+      date: serverTimestamp(),
+      total: total
+    }
+    const orderCollection = collection(db, 'orders')
+    const orderRequest = addDoc(orderCollection, order)
+
+    clear()
+	}
+  
 	
 	return(
 		<>
@@ -20,29 +39,24 @@ const Cart = () => {
 			</div>
 			<div>
 				{
-					result.cart.map((item, index) => {
-					
-						const totalValue = item.disco.price * item.count
-						
+					cart.map((item, index) => {					
+						const totalValue = item.disco.price * item.count						
 						return (
-								<div key={index} className="cart-items">
-									<div className="img-container">
-										<img src={`/${item.disco.img}`} alt="" />
-									</div>
-									<div className="record-data">
-										<h3>{item.disco.artist}</h3>
-										<h4>{item.disco.record}</h4>
-										<p>Precio unitario: ${item.disco.price}</p>
-										<p>Cantidad: {item.count}</p>
-										<p>Precio total: ${totalValue}</p>
-									</div>
-									<div className="record-remove">
-										<button className="add-to-cart" onClick={()=>handleBorrar(item)}>Quitar item</button>
-									</div>
-									
-									
-								</div>
-								
+              <div key={index} className="cart-items">
+                <div className="img-container">
+                  <img src={`/${item.disco.img}`} alt="" />
+                </div>
+                <div className="record-data">
+                  <h3>{item.disco.artist}</h3>
+                  <h4>{item.disco.record}</h4>
+                  <p>Precio unitario: ${item.disco.price}</p>
+                  <p>Cantidad: {item.count}</p>
+                  <p>Precio total: ${totalValue}</p>
+                </div>
+                <div className="record-remove">
+                  <button className="add-to-cart" onClick={()=>handleBorrar(item)}>Quitar item</button>
+                </div>
+              </div>
 						)
 					})
 				}
@@ -51,12 +65,17 @@ const Cart = () => {
 				<p><strong>{cart.length ? 
 					<>El valor total de tu compra es: ${ total }</>
 					: <>En este momento no tienes discos seleccionados <Link to="/">
-						<button className="add-to-cart">Volver al catálogo</button></Link></>
+						<button className="add-to-cart">Volver al catálogo</button></Link>
+            </>
 				}</strong></p>
-				
 			</div>
 			<div className="clear">
-				{cart.length ? <button className="add-to-cart" onClick={clear}>Borrar todo</button> : ''}
+				{cart.length ? 
+          <>
+            <button className="add-to-cart" onClick={clear}>Borrar todo</button>
+            <button className="add-to-cart" onClick={handlePurchase}>Finalizar compra</button>
+          </>
+          : ''}
 			</div>
 			
 		</>

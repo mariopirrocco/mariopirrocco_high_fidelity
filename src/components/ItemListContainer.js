@@ -26,20 +26,11 @@ const ItemListContainer = ({type}) => {
 
     documents
       .then((response) => {
-        const aux = []
-        response.forEach((document) => {
-          const singleRecord = {
-            id: document.id,
-            ...document.data()
-          }
-          aux.push(singleRecord)          
-        })
-        setProductos(aux)
-        setLoading(false)        
+        const records = response.docs.map((document) => document.data())
+        setProductos(records)        
       })
-      .catch(() => {
-        toast.error('Hubo un error accediendo a la base de datos')
-      })
+      .catch(() => toast.error('Hubo un error accediendo a la base de datos'))
+      .finally(() => setLoading(false))
 	}, [id])
 
 	return(
