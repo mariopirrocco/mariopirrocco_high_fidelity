@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify'
 import { createContext, useState } from 'react'
 export const context = createContext()
 const { Provider } = context
@@ -70,6 +71,13 @@ const CartContextProvider = (props) => {
     totalItems
 	}
 	
+  const getPurchase = (orderRequest) => {
+    orderRequest.then((response) => {
+      toast.success(`Tu orden de compra es: ${response.id}`)
+      clear()
+    })
+  }
+
 	return(
 		<Provider value={contextValue} >
 			{props.children}

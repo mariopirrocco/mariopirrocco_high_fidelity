@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { context } from './CartContext'
 import { Link } from 'react-router-dom'
-
+import { toast } from 'react-toastify'
 import { db } from '../Firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
@@ -27,8 +27,12 @@ const Cart = () => {
     }
     const orderCollection = collection(db, 'orders')
     const orderRequest = addDoc(orderCollection, order)
+    console.log(orderRequest)
 
-    clear()
+    orderRequest.then((response) => {
+      toast.success(`Tu orden de compra es: ${response.id}`)
+      clear()
+    })
 	}
   
 	
