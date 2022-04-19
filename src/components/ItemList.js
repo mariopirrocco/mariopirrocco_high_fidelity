@@ -12,7 +12,7 @@ const ItemList = ({ discos, loading }) => {
 	return (
 		<>			
 			<div className="records">				
-				{loading ? '' : showRecords()}
+				{ loading ? '' : showRecords() }
 			</div>
 		</>
 	)

@@ -5,12 +5,9 @@ import { toast } from 'react-toastify'
 import { db } from '../Firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
-const Cart = () => {
-	
-	const result = useContext(context)
-	
+const Cart = () => {	
+	const result = useContext(context)	
 	const { cart, removeItem, clear, total } = result
-
 	const handleBorrar = (item) => {
 		removeItem(item)
 	}
@@ -27,7 +24,6 @@ const Cart = () => {
     }
     const orderCollection = collection(db, 'orders')
     const orderRequest = addDoc(orderCollection, order)
-    console.log(orderRequest)
 
     orderRequest.then((response) => {
       toast.success(`Tu orden de compra es: ${response.id}`)
@@ -35,7 +31,6 @@ const Cart = () => {
     })
 	}
   
-	
 	return(
 		<>
 			<div className="msg">
@@ -79,7 +74,7 @@ const Cart = () => {
             <button className="add-to-cart" onClick={clear}>Borrar todo</button>
             <button className="add-to-cart" onClick={handlePurchase}>Finalizar compra</button>
           </>
-          : ''}
+          : null}
 			</div>
 			
 		</>

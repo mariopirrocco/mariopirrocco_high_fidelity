@@ -12,16 +12,16 @@ const ItemListContainer = ({type}) => {
 
 	const [loading, setLoading] = useState(true)
 	const [productos, setProductos] = useState([])
-	const { id}  = useParams()
+	const { id }  = useParams()
 	let filtered = []
   let documents = null
 	
 	useEffect(() => {
     if(id) {
-      const q = query(collection(db, 'records'), where('format', '==', id ))
+      const q = query(collection(db, 'discos'), where('format', '==', id ))
       documents = getDocs(q)
     } else {
-      documents = getDocs(collection(db, 'records'))
+      documents = getDocs(collection(db, 'discos'))
     }
 
     documents
@@ -36,9 +36,9 @@ const ItemListContainer = ({type}) => {
 	return(
 		<div className="item-list-container">
 			<div className="msg">
-				{loading ? <h4 className='loading-content'>Cargando Discos</h4> : ''}
+				{ loading ? <h4 className='loading-content'>Cargando Discos</h4> : null }
 			</div>
-			<ItemList discos={productos} loading={loading} />		
+			<ItemList discos={ productos } loading={ loading } />		
 		</div>
 	)
 }

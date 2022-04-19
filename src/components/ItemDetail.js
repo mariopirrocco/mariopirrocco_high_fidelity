@@ -11,22 +11,22 @@ const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {
 	return (
 		<div className="single-record">
 			<div className="record-img">
-				<img src={`/${disco[0].img}`} alt={`${disco[0].artist} - ${disco[0].record}`} />
+				<img src={ `/${disco[0].img}` } alt={`${disco[0].artist} - ${disco[0].record}` } />
 			</div>
 			<div className="record-data">				
-				<h3>{disco[0].artist}</h3>
-				<h4>{disco[0].record}</h4>
+				<h3>{ disco[0].artist }</h3>
+				<h4>{ disco[0].record }</h4>
 				<p><strong>Precio:</strong> U$S {disco[0].price}</p> 
 				
 				<hr />
-				<p><strong>Año:</strong> {disco[0].released}</p>
-				<p><strong>Estilo:</strong> {disco[0].genre}</p>
-				<p><strong>Formato:</strong> {disco[0].format}</p>
+				<p><strong>Año:</strong> { disco[0].released }</p>
+				<p><strong>Estilo:</strong> { disco[0].genre }</p>
+				<p><strong>Formato:</strong> { disco[0].format }</p>
 				<p><strong>Canciones:</strong></p>
 				<ul>
 					{
 						disco[0].tracklist.map((track, index) => {
-							return <li key={index}>{track} </li>
+							return <li key={ index }>{ track.title } </li>
 						})
 					}
 				</ul>
@@ -34,7 +34,7 @@ const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {
 					{goToCart ? <Link to="/carrito">
 												<button className="add-to-cart">Terminar compra</button>
 											</Link> 
-										: <ItemCount stock={stock} initial={initial} onAdd={onAdd} disco={disco[0]} />}
+										: <ItemCount stock={ stock } initial={ initial } onAdd={ onAdd } disco={ disco[0] } />}
 				</div>
 			</div>
 		</div>

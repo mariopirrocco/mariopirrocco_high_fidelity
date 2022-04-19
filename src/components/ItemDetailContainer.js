@@ -43,7 +43,7 @@ const ItemDetailContainer = () => {
 	
 	useEffect(() => {
 		
-    const q = query(collection(db, 'records'), where('id', '==', id ))
+    const q = query(collection(db, 'discos'), where('id', '==', id ))
     documents = getDocs(q)
     
     documents
@@ -70,10 +70,10 @@ const ItemDetailContainer = () => {
 	return(
 		<div className="item-list-container">
 			<div className="msg">
-				{loading ? <h4 className='loading-content'>Cargando Disco</h4> : ''}
+				{ loading ? <h4 className='loading-content'>Cargando Disco</h4> : null }
 			</div>
 			<div className="record-card">
-				{loading ? '' : <ItemDetail disco={productos} stock={stock} initial={initial} onAdd={onAdd} goToCart={goToCart} />}
+				{ loading ? '' : <ItemDetail disco={productos} stock={stock} initial={initial} onAdd={onAdd} goToCart={goToCart} /> }
 			</div>			
 		</div>
 	)

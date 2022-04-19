@@ -4,8 +4,6 @@ import { useState, useContext } from 'react'
 const ItemCount = ({ stock, initial, onAdd, disco }) => {
 
 	const [ counter, setCounter ] = useState(initial)
-
-
 	
 	const addRecord = () => {
 		if(counter < stock) {
@@ -22,11 +20,11 @@ const ItemCount = ({ stock, initial, onAdd, disco }) => {
 		<>
 			<div className="counter">{ counter }</div>
 			<div className="control">
-				<button className="items-control" onClick = {addRecord}> + </button>
-				<button className="items-control" onClick = {removeRecord}> - </button>	
+				<button className="items-control" onClick = { addRecord }> + </button>
+				<button className="items-control" onClick = { removeRecord }> - </button>	
 			</div>
 			
-			<button className="add-to-cart" onClick={()=> onAdd(disco, counter)}>Agregar al carrito</button>
+			<button className="add-to-cart" onClick={ ()=> onAdd(disco, counter) }>Agregar al carrito</button>
 		</>
 	)
 }

@@ -8,14 +8,13 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 
-
 const App = () => {
   
   return (  
     <CartContextProvider>
       <BrowserRouter>
         <Header />
-        <Main nombre="Andrés" apellido="López" />
+        <Main />
         <Footer />
         <ToastContainer />
       </BrowserRouter>
