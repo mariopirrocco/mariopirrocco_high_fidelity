@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom'
-import { toast } from 'react-toastify'
 
 import ItemListContainer from './ItemListContainer'
 import ItemDetailContainer from './ItemDetailContainer'
