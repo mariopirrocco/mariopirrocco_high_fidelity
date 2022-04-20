@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { toast } from 'react-toastify'
+import OAuth from './OAuth'
 
 const SignIn = () => {
   const [ showPassword, setShowPassword ] = useState(false)
@@ -29,31 +30,30 @@ const SignIn = () => {
       }
     } catch(error) {
      toast.error('Usuario o clave incorrectos')
-    }
-    
+    }    
   }
 
-
-  return(
-    <>
-      <div className='pageContainer'>
-        <header>
-          <p className='pageHeader'>¡Bienvenido!</p>
-        </header>
+  return(    
+    <div className='user-info-container'>
+      <header>
+        <h3>Ingresa a High Fildelity Records</h3>
+      </header>
+      
+      <form onSubmit={ onSubmit }>
         
-        <form onSubmit={ onSubmit }>
-          <input type='email' className='emailInput' placeholder='Email' id='email' value={ email } onChange={ onChange } />
-
-          <div className="passwordInputDiv">
-            <input type={ showPassword ? 'text' : 'password' } className='emailInput' placeholder='Clave' id='password' value={ password } onChange={ onChange } /> <br />
-            <p className='text-link' onClick={ () => setShowPassword((prevState) => !prevState) }>Mostrar clave</p>
-          </div>
-          <button>Enviar</button>
-        </form>
-      </div>
+      <input type='email' className='form-input' placeholder='Email' id='email' value={ email } onChange={ onChange } />
+        <div className='password-input-div'>
+          
+          <input type={ showPassword ? 'text' : 'password' } className='form-input' placeholder='Clave' id='password' value={ password } onChange={ onChange } /> <br />
+          <p className='show-password' onClick={ () => setShowPassword((prevState) => !prevState) }>Mostrar clave</p>
+        </div>
+        <button className='add-to-cart'>Enviar</button>
+      </form>
+      
+      <OAuth />
       <Link to='/registrarse' className='text-link'>Registrarse</Link>
       <Link to='/olvide-clave' className='text-link'>¿Olvidaste tu clave?</Link>
-    </>
+    </div>
   )
 }
 

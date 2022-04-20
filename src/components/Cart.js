@@ -63,16 +63,20 @@ const Cart = () => {
 			<div className="total-price">
 				<p><strong>{cart.length ? 
 					<>El valor total de tu compra es: ${ total }</>
-					: <>En este momento no tienes discos seleccionados <Link to="/">
-						<button className="add-to-cart">Volver al catálogo</button></Link>
+					: <>
+              <p>En este momento no tienes discos seleccionados</p> 
+              <Link to="/">
+						    <button className="add-to-cart">Volver al catálogo</button>
+              </Link>
             </>
 				}</strong></p>
 			</div>
 			<div className="clear">
 				{cart.length ? 
           <>
+            <button className="add-to-cart extra-margin-bottom" onClick={handlePurchase}>Finalizar compra</button> <br />
             <button className="add-to-cart" onClick={clear}>Borrar todo</button>
-            <button className="add-to-cart" onClick={handlePurchase}>Finalizar compra</button>
+            
           </>
           : null}
 			</div>

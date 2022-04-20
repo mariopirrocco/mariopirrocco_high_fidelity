@@ -108,9 +108,13 @@ div.records {
     border-radius: 4px;
 
     p {
-      margin: 0;
+      margin: 0 0 6px;
       padding: 0;
       line-height: 1;
+    }
+
+    p.record-title {
+      font-size: 15px;
     }
 
     img {
@@ -191,10 +195,15 @@ button {
   &.add-to-cart {
     width: 264px;
     background-color: #545454;
+    padding: 10px 14px 8px;
     
+    &.extra-margin-bottom {
+      margin-bottom: 12px;
+    }
     &:hover {
       background: #bbb;
     }
+
   }
 
   &.ver-detalles {
@@ -212,13 +221,23 @@ button {
 }
 
 .text-link {
-  display: inline-block;
-  min-width: 150px;
-  text-align: center;
-  border: 1px solid black;
+  display: block;
+  margin: 12px auto;
+  width: 264px;
+  background-color: #545454;
+  border: none;
+  padding: 10px 14px 8px;
+  color: #fff;
+  border-radius: 6px !important;
+  transition: all .2s ease-in-out;
+  cursor: pointer;  
+  font-size: 14px;
   text-decoration: none;
-  padding: 8px 12px 5px;
-  cursor: pointer;
+  text-align: center;
+  &:hover {
+    background: #bbb;
+  }
+
 }
 
 div.cart-items {
@@ -236,26 +255,83 @@ div.cart-items {
       border-radius: 6px;
     }
   }
-
   div.record-data {
     padding: 1.2rem;
+    width: 345px;
   }
-  
 }
 
 div.total-price {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   max-width: 850px;
   margin: 0 auto 1.5rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   padding: 1rem;
+
+  button {
+    margin-top: 1rem;
+  }
 }
 
 .clear {
   text-align: center;
+}
+
+.user-info-container {
+  max-width: 1100px;
+  margin: 1rem auto;
+  text-align: center;
+  h3 {
+    margin: 2rem 1rem 1rem;
+  }
+  .form-input {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    margin: 1rem 0 1rem;
+  }
+  .password-input-div {
+    max-width: 500px;
+    margin: auto;
+    position: relative;
+    
+    p.show-password {
+      position: absolute;
+      right: 15px;
+      top: 32px;
+      color: #888;
+      cursor: pointer;
+    }
+  }
+}
+
+.social-login {
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
+  .google-login{ 
+    margin: 12px 0 0px;
+    display: flex;
+    justify-content: center;
+    background: #333;
+    
+    img {
+      margin-left: 18px;
+      width: 20px;
+      height: auto;
+    }
+  }
 }
 
 footer {

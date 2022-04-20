@@ -4,6 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../Firebase'
 import { toast } from 'react-toastify'
+import OAuth from './OAuth'
 
 const SignUp = () => {
   const [ showPassword, setShowPassword ] = useState(false)
@@ -45,27 +46,29 @@ const SignUp = () => {
   }
 
   return(
-    <>
-      <div className='pageContainer'>
+    
+    <div className='user-info-container'>
         <header>
-          <p className='pageHeader'>¡Regístrate!</p>
+          <h3>¡Regístrate!</h3>
         </header>
         
         <form onSubmit={ onSubmit }>
-          <input type='text' className='emailInput' placeholder='Nombre' id='name' value={ name } onChange={ onChange } /><br />
-          <input type='email' className='emailInput' placeholder='Email' id='email' value={ email } onChange={ onChange } />
+          <input type='text' className='form-input' placeholder='Nombre' id='name' value={ name } onChange={ onChange } /><br />
+          
+          <input type='email' className='form-input' placeholder='Email' id='email' value={ email } onChange={ onChange } />
 
-          <div className="passwordInputDiv">
-            <input type={ showPassword ? 'text' : 'password' } className='emailInput' placeholder='Clave (Min 6 caracteres)' id='password' value={ password } onChange={ onChange } /> <br />
-            <p className='text-link' onClick={ () => setShowPassword((prevState) => !prevState) }>Mostrar clave</p>
+          <div className='password-input-div'>
+            <input type={ showPassword ? 'text' : 'password' } className='form-input' placeholder='Clave (Min 6 caracteres)' id='password' value={ password } onChange={ onChange } /> <br />
+            
+            <p className='show-password' onClick={ () => setShowPassword((prevState) => !prevState) }>Mostrar clave</p>
           </div>
-          <button>Enviar</button>
+          <button className='add-to-cart'>Enviar</button>
         </form>
-      </div>
       
+      <OAuth />
       <Link to='/ingresar' className='text-link'>Ingresar</Link>
       <Link to='/olvide-clave' className='text-link'>¿Olvidaste tu clave?</Link>
-    </>
+    </div>
   )
 }
 
