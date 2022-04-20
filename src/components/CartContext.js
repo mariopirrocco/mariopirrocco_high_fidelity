@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify'
 import { createContext, useState } from 'react'
 export const context = createContext()
 const { Provider } = context

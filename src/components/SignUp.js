@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../Firebase'
 import { toast } from 'react-toastify'
-import OAuth from './OAuth'
+// import OAuth from './OAuth'
 
 const SignUp = () => {
   const [ showPassword, setShowPassword ] = useState(false)
@@ -65,7 +65,7 @@ const SignUp = () => {
           <button className='add-to-cart'>Enviar</button>
         </form>
       
-      <OAuth />
+      
       <Link to='/ingresar' className='text-link'>Ingresar</Link>
       <Link to='/olvide-clave' className='text-link'>¿Olvidaste tu clave?</Link>
     </div>

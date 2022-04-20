@@ -5,8 +5,7 @@ import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
 
 const ItemDetail = ({ disco, stock, initial, onAdd, goToCart }) => {	
-	const result = useContext(context)
-
+  
 	return (
 		<div className="single-record">
 			<div className="record-img">
