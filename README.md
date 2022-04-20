@@ -25,4 +25,4 @@ Al concretar la compra el usuario es notificado del id de su compra, aún queda 
 
 ## Animación descriptiva del funcionamiento de la aplicación
 
-![](https://github.com/mariopirrocco/mariopirrocco_high_fidelity/proyecto-ecommerce-react-coder.gif)
+![](https://github.com/mariopirrocco/mariopirrocco_high_fidelity/blob/main/proyecto-ecommerce-react-coder.gif)
