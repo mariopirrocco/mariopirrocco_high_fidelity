@@ -71,12 +71,7 @@ const CartContextProvider = (props) => {
     totalItems
 	}
 	
-  const getPurchase = (orderRequest) => {
-    orderRequest.then((response) => {
-      toast.success(`Tu orden de compra es: ${response.id}`)
-      clear()
-    })
-  }
+
 
 	return(
 		<Provider value={contextValue} >

@@ -3,17 +3,13 @@ import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { db } from '../Firebase'
 import { getDocs, query, collection, where } from 'firebase/firestore'
-import ItemDetail from './ItemDetail'
 import ItemList from './ItemList'
-
-
 
 const ItemListContainer = ({type}) => {  
 
 	const [loading, setLoading] = useState(true)
 	const [productos, setProductos] = useState([])
 	const { id }  = useParams()
-	let filtered = []
   let documents = null
 	
 	useEffect(() => {

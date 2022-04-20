@@ -1,6 +1,4 @@
 import Item from './Item'
-import ItemDetail from './ItemDetail'
-
 
 const ItemList = ({ discos, loading }) => {	
   const showRecords = () => {

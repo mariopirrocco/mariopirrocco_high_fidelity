@@ -3,11 +3,8 @@ import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { context } from './CartContext'
 
-
 import { toast } from 'react-toastify'
-
 import ItemDetail from './ItemDetail'
-import discos from '../discosFull.json'
 
 import { db } from '../Firebase'
 import { getDocs, query, collection, where } from 'firebase/firestore'
@@ -21,10 +18,8 @@ const ItemDetailContainer = () => {
 	const [loading, setLoading] = useState(true)
 	const [productos, setProductos] = useState([])
 	const { id } = useParams()
-	let selected = []
 	let [goToCart, setGoToCart] = useState(false)
 	let documents = null
-
 	
 	let stock = 4
 	const initial = 1
@@ -63,9 +58,7 @@ const ItemDetailContainer = () => {
         toast.error('Hubo un error accediendo a la base de datos')
       })
 		
-	}, [id])
-	
-		
+	}, [id])		
 
 	return(
 		<div className="item-list-container">
